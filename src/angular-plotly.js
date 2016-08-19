@@ -25,14 +25,18 @@
           scope.$watch(function() {
             return [scope.layout, scope.data];
           }, function() {
-            Plotly.Plots.resize(element);
+            if (element.layout != undefined) {
+              var widthTemp = element.layout.width;
+            }
             init();
-            scope.layout.width = element.layout.width;
-            element.layout = scope.layout;
             element.data = scope.data;
+            element.layout = scope.layout;
             Plotly.redraw(element);
+            if (widthTemp != undefined) {
+              element.layout.width = widthTemp;
+            }
+            Plotly.Plots.resize(element);
           }, true);
-
 
           var w = angular.element($window);
           scope.getWindowDimensions = function () {
