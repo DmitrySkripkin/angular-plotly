@@ -1,7 +1,7 @@
 (function(){
     'use strict';
     angular.module('plotly', [])
-    .directive('plotly', function($window, $timeout, $rootScope) {
+    .directive('plotly', ['$window', '$timeout', '$rootScope', function($window, $timeout, $rootScope) {
       return {
         restrict: 'E',
         template: '<div></div>',
@@ -67,5 +67,5 @@
           })
         }
       };
-    });
+    }]);
 })();
