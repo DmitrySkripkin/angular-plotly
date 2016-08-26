@@ -25,16 +25,10 @@
           scope.$watch(function() {
             return [scope.layout, scope.data];
           }, function() {
-            if (!angular.isUndefined(element.layout)) {
-              var widthTemp = element.layout.width;
-            }
             init();
             element.layout = scope.layout;
             element.data = scope.data;
             Plotly.redraw(element);
-            if (!angular.isUndefined(widthTemp)) {
-              element.layout.width = widthTemp;
-            }
             Plotly.Plots.resize(element);
           }, true);
 
