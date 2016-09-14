@@ -40,7 +40,9 @@
             };
           };
           scope.$watch(scope.getWindowDimensions, function () {
-            Plotly.Plots.resize(element);
+            $timeout(function () {
+              Plotly.Plots.resize(element);
+            }, 1000);
           }, true);
 
           w.bind('resize', function () {
