@@ -29,7 +29,7 @@
             element.layout = scope.layout;
             element.data = scope.data;
             Plotly.redraw(element);
-            Plotly.Plots.resize(element);
+            //Plotly.Plots.resize(element);
           }, true);
 
           var w = angular.element($window);
